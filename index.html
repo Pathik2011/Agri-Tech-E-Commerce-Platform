@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri-Tech E-Commerce Platform </title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #374151;
+        }
+        .section-heading {
+            border-bottom: 2px solid #6b7280;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .modal-content, #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header/Navigation Bar -->
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white shadow-lg py-4 px-6 md:px-12 sticky top-0 z-50 rounded-b-lg">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-3xl font-bold mb-2 md:mb-0">Agri-Tech E-Commerce Platform </h1>
+            <nav>
+                <ul class="flex space-x-4 md:space-x-8 text-lg">
+                    <li><a href="#about" class="hover:text-blue-200 transition-colors duration-300">About</a></li>
+                    <li><a href="#project-planning-design" class="hover:text-blue-200 transition-colors duration-300">Projects</a></li>
+                    <li><a href="#current-development" class="hover:text-blue-200 transition-colors duration-300">Current Work</a></li>
+                    <li><a href="#skills" class="hover:text-blue-200 transition-colors duration-300">Skills</a></li>
+                    <li><a href="#contact" class="hover:text-blue-200 transition-colors duration-300">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 md:py-12">
+
+        <!-- About Me Section -->
+        <section id="about" class="bg-white p-6 md:p-10 rounded-lg shadow-md mb-8 md:mb-12">
+            <h2 class="text-3xl font-semibold mb-6 section-heading text-blue-700">About Me</h2>
+            <p class="text-lg leading-relaxed">
+                Hello! I'm a passionate AWS API Developer with expertise in designing, building, and deploying scalable and secure APIs, particularly leveraging <strong>AWS API Gateway</strong> for robust backend solutions.
+            </p>
+        </section>
+
+        <!-- Project 1: Planning & Design -->
+        <section id="project-planning-design" class="bg-white p-6 md:p-10 rounded-lg shadow-md mb-8 md:mb-12">
+            <h2 class="text-3xl font-semibold mb-6 section-heading text-blue-700">1. 📐 Planning & Design</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                In the initial planning and design phases, I focused on creating comprehensive documentation, architectural diagrams, and collaborating with UI/UX teams using Figma. This ensured a robust foundation, clear API specifications, and seamless integration between frontend and backend.
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4">
+                <li><strong>Figma Collaboration:</strong> Reviewed UI/UX wireframes and mockups to align API design with user interface requirements.</li>
+                <li><strong>Architecture Planning:</strong> Developed high-level system architecture diagrams, Entity-Relationship Diagrams (ERDs), and data flow diagrams.</li>
+                <li><strong>API Specification:</strong> Defined detailed API endpoints and data models (e.g., using OpenAPI/Swagger principles) to ensure clear contracts.</li>
+                <li><strong>Initial Scope Definition:</strong> Collaborated on defining project scope and breaking down features into manageable sprints.</li>
+            </ul>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">Diagrams & Planning:</h4>
+                    <img src="image/Class_Diagram.png" data-original-src="image/Class_Diagram.png" alt="Class Diagram" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a78bfa/ffffff?text=Image+Not+Found'">
+                    <img src="image/Component_Diagram.drawio.png" data-original-src="image/Component_Diagram.drawio.png" alt="Component Diagram" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/8b5cf6/ffffff?text=Image+Not+Found'">
+                    <img src="image/Sequence_diagram_Details.png" data-original-src="image/Sequence_diagram_Details.png" alt="Sequence Diagram Details" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a78bfa/ffffff?text=Image+Not+Found'">
+                    <img src="image/homepage_planning_screenshot.png" data-original-src="image/homepage_planning_screenshot.png" alt="Homepage Planning Screenshot" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/8b5cf6/ffffff?text=Image+Not+Found'">
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">UI/UX & Documentation:</h4>
+                    <img src="image/figma_1.png" data-original-src="image/figma_1.png" alt="Figma UI/UX Design 1" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a78bfa/ffffff?text=Image+Not+Found'">
+                    <img src="image/figma_2.png" data-original-src="image/figma_2.png" alt="Figma UI/UX Design 2" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/8b5cf6/ffffff?text=Image+Not+Found'">
+                    <img src="image/ERD_diamgram_JIRA_screenshot.png" data-original-src="image/ERD_diamgram_JIRA_screenshot.png" alt="ERD Diagram JIRA Screenshot" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a78bfa/ffffff?text=Image+Not+Found'">
+                    <img src="image/homepage_jira_screenshot.png" data-original-src="image/homepage_jira_screenshot.png" alt="Homepage JIRA Screenshot" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/8b5cf6/ffffff?text=Image+Not+Found'">
+                    <img src="image/SRS_screenshot.png" data-original-src="image/SRS_screenshot.png" alt="SRS Screenshot" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a78bfa/ffffff?text=Image+Not+Found'">
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-4">
+                <a href="https://github.com/yourusername/ecommerce-backend-docs" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
+                    View Docs on GitHub
+                </a>
+                <a href="https://www.figma.com/your-project-link" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
+                    View Figma Project
+                </a>
+                <a href="your_ecommerce_api_design_doc.pdf" download class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
+                    Download Design Doc
+                </a>
+            </div>
+        </section>
+
+        <!-- Project 2: Cloud Architecture -->
+        <section id="project-cloud-architecture" class="bg-white p-6 md:p-10 rounded-lg shadow-md mb-8 md:mb-12">
+            <h2 class="text-3xl font-semibold mb-6 section-heading text-blue-700">2. ☁️ Cloud Architecture</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                The backend leverages a serverless-first approach on AWS to ensure scalability, cost-efficiency, and high availability. <strong>AWS API Gateway</strong> serves as the single entry point for all client requests, routing them to the appropriate backend services.
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4">
+                <li><strong>AWS API Gateway:</strong> Manages all API endpoints, request routing, and authentication.</li>
+                <li><strong>AWS Lambda:</strong> Executes core business logic for various services (Product, Cart, Order, Customer, Homepage).</li>
+                <li><strong>AWS RDS (MySQL):</strong> Provides a managed relational database for persistent data storage.</li>
+                <li><strong>AWS S3:</strong> Securely stores product images and other static assets.</li>
+                <li><strong>AWS IAM:</strong> Manages fine-grained access control and permissions for secure resource access.</li>
+                <li><strong>AWS CloudWatch:</strong> Centralized logging and monitoring for all services.</li>
+                <li><strong>Architecture Focus:</strong> Microservices pattern, serverless computing, event-driven design.</li>
+            </ul>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">AWS Core Services:</h4>
+                    <img src="image/AWS_Component_Diagram.png" data-original-src="image/AWS_Component_Diagram.png" alt="AWS Architecture Overview" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/9ca3af/ffffff?text=Image+Not+Found'">
+                    <img src="image/apigw_1.png" data-original-src="image/apigw_1.png" alt="API Gateway Resources" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/9ca3af/ffffff?text=Image+Not+Found'">
+                    <img src="image/apigw_2.png" data-original-src="image/apigw_2.png" alt="API Gateway Stages" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6b7280/ffffff?text=Image+Not+Found'">
+                    <img src="image/S3_1.png" data-original-src="image/S3_1.png" alt="S3 Object Overview" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/9ca3af/ffffff?text=Image+Not+Found'">
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">Lambda & Database:</h4>
+                    <img src="image/lambda_1.png" data-original-src="image/lambda_1.png" alt="Lambda Functions List" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/9ca3af/ffffff?text=Image+Not+Found'">
+                    <img src="image/lambda_2.png" data-original-src="image/lambda_2.png" alt="Lambda Function Overview" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6b7280/ffffff?text=Image+Not+Found'">
+                    <img src="image/lambda_module_vscode.png" data-original-src="image/lambda_module_vscode.png" alt="Lambda Module VSCode" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/9ca3af/ffffff?text=Image+Not+Found'">
+                    <img src="image/RDS_1.png" data-original-src="image/RDS_1.png" alt="RDS Instance Overview" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/9ca3af/ffffff?text=Image+Not+Found'">
+                    <img src="image/RDS_2.png" data-original-src="image/RDS_2.png" alt="RDS Schema Table" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/9ca3af/ffffff?text=Image+Not+Found'">
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-4">
+                <a href="https://github.com/yourusername/ecommerce-aws-infra" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
+                    View Infra Code on GitHub
+                </a>
+                <a href="your_aws_architecture_doc.pdf" download class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
+                    Download Architecture Doc
+                </a>
+            </div>
+        </section>
+
+        <!-- Project 3: Backend Development -->
+        <section id="project-backend-development" class="bg-white p-6 md:p-10 rounded-lg shadow-md mb-8 md:mb-12">
+            <h2 class="text-3xl font-semibold mb-6 section-heading text-blue-700">3. 💻 Backend Development</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                The backend is developed primarily in Python, utilizing modern programming paradigms to ensure high performance, maintainability, and testability. FastAPI provides a robust and efficient framework for API development, while SQLAlchemy handles ORM for database interactions.
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4">
+                <li><strong>Python:</strong> Core development language for all backend services.</li>
+                <li><strong>FastAPI:</strong> Used for building high-performance, asynchronous RESTful APIs.</li>
+                <li><strong>SQLAlchemy:</strong> ORM for seamless and efficient interaction with MySQL database.</li>
+                <li><strong>Object-Oriented Programming (OOPS):</strong> Applied for modular, reusable, and scalable code design.</li>
+                <li><strong>Unit Testing:</strong> Comprehensive unit tests implemented using `pytest` to ensure code quality and reliability.</li>
+                <li><strong>Async/Await:</strong> Leveraged for non-blocking I/O operations, improving API responsiveness and concurrency.</li>
+            </ul>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">Code Snippets & Tests:</h4>
+                    <img src="image/unit_test_1.png" data-original-src="image/unit_test_1.png" alt="Unit Test Example" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a78bfa/ffffff?text=Image+Not+Found'">
+                    <img src="image/python_code.png" data-original-src="image/python_code.png" alt="Python Code Example" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/8b5cf6/ffffff?text=Image+Not+Found'">
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-4">
+                <a href="https://github.com/yourusername/ecommerce-backend-code" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
+                    View Code on GitHub
+                </a>
+                <a href="your_development_practices_doc.pdf" download class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
+                    Download Dev Practices Doc
+                </a>
+            </div>
+        </section>
+
+        <!-- Project 4: CI/CD & Infrastructure -->
+        <section id="project-ci-cd-infra" class="bg-white p-6 md:p-10 rounded-lg shadow-md mb-8 md:mb-12">
+            <h2 class="text-3xl font-semibold mb-6 section-heading text-blue-700">4. 🚀 CI/CD & Infrastructure</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Automated deployment strategies ensure rapid and reliable delivery of new features and updates. I've implemented a Continuous Integration/Continuous Deployment (CI/CD) pipeline using GitHub Actions and managed infrastructure with Terraform.
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4">
+                <li><strong>GitHub Actions:</strong> Orchestrates the CI/CD pipeline, automating build, test, and deployment processes.</li>
+                <li><strong>CI/CD Pipeline:</strong> Ensures code quality through automated testing and enables quick, consistent deployments to AWS environments.</li>
+                <li><strong>Terraform:</strong> Used for Infrastructure as Code (IaC) to provision and manage AWS resources, ensuring reproducibility and version control of the infrastructure.</li>
+                <li><strong>Benefits:</strong> Reduced manual errors, faster release cycles, consistent environment provisioning.</li>
+            </ul>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">GitHub Actions Workflows:</h4>
+                    <img src="image/github_actions_screenshot.png" data-original-src="image/github_actions_screenshot.png" alt="GitHub Actions Workflow List" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/d1d5db/ffffff?text=Image+Not+Found'">
+                    <img src="image/github_actions_screenshot_2.png" data-original-src="image/github_actions_screenshot_2.png" alt="GitHub Actions Deploy Summary" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/9ca3af/ffffff?text=Image+Not+Found'">
+                    <img src="image/github_actions_screenshot_3.png" data-original-src="image/github_actions_screenshot_3.png" alt="GitHub Actions Workflow File" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/9ca3af/ffffff?text=Image+Not+Found'">
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">Terraform Configuration:</h4>
+                    <img src="image/apigw_module_screenshot.png" data-original-src="image/apigw_module_screenshot.png" alt="API Gateway Terraform Config 1" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/9ca3af/ffffff?text=Image+Not+Found'">
+                    <img src="image/apigw_module_screenshot2.png" data-original-src="image/apigw_module_screenshot2.png" alt="API Gateway Terraform Config 2" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6b7280/ffffff?text=Image+Not+Found'">
+                    <img src="image/lambda_module_vscode.png" data-original-src="image/lambda_module_vscode.png" alt="Lambda Module VSCode" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/9ca3af/ffffff?text=Image+Not+Found'">
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-4">
+                <a href="https://github.com/yourusername/ecommerce-cicd" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
+                    View CI/CD on GitHub
+                </a>
+                <a href="your_deployment_strategy_doc.pdf" download class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
+                    Download Deployment Doc
+                </a>
+            </div>
+        </section>
+
+        <!-- Project 5: Monitoring & Observability -->
+        <section id="project-monitoring-observability" class="bg-white p-6 md:p-10 rounded-lg shadow-md mb-8 md:mb-12">
+            <h2 class="text-3xl font-semibold mb-6 section-heading text-blue-700">5. 📊 Monitoring & Observability</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Effective logging and monitoring are crucial for maintaining the health and performance of the backend services. AWS CloudWatch is utilized to collect logs, metrics, and set up alarms, providing real-time insights into application behavior and operational issues.
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4">
+                <li><strong>CloudWatch Logs:</strong> Centralized collection of all application logs from FastAPI and other services for easy access and analysis.</li>
+                <li><strong>Custom Metrics:</strong> Key performance indicators (KPIs) and business metrics are captured and sent to CloudWatch Metrics for granular tracking.</li>
+                <li><strong>Alarms and Notifications:</strong> Configured CloudWatch Alarms trigger notifications (e.g., via SNS) for critical events or performance thresholds, enabling proactive issue resolution.</li>
+                <li><strong>CloudWatch Dashboards:</strong> Custom dashboards provide a consolidated, real-time view of application health, performance, and operational status.</li>
+            </ul>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">CloudWatch Logs:</h4>
+                    <img src="image/cloudwatch_1.png" data-original-src="image/cloudwatch_1.png" alt="CloudWatch Logs Events" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a78bfa/ffffff?text=Image+Not+Found'">
+                    <img src="image/cloudwatch_2.png" data-original-src="image/cloudwatch_2.png" alt="CloudWatch Logs Insights" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/8b5cf6/ffffff?text=Image+Not+Found'">
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">CloudWatch Metrics & Alarms:</h4>
+                    <img src="image/cloudwatch_3.png" data-original-src="image/cloudwatch_3.png" alt="CloudWatch Metrics" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a78bfa/ffffff?text=Image+Not+Found'">
+                    <img src="image/cloudwatch_4.png" data-original-src="image/cloudwatch_4.png" alt="CloudWatch Log Events 2" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/8b5cf6/ffffff?text=Image+Not+Found'">
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-4">
+                <a href="https://github.com/yourusername/ecommerce-monitoring" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
+                    View Monitoring Config on GitHub
+                </a>
+                <a href="your_monitoring_strategy_doc.pdf" download class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
+                    Download Monitoring Doc
+                </a>
+            </div>
+        </section>
+
+        <!-- Project 6: Tools & Collaboration -->
+        <section id="project-tools-collaboration" class="bg-white p-6 md:p-10 rounded-lg shadow-md mb-8 md:mb-12">
+            <h2 class="text-3xl font-semibold mb-6 section-heading text-blue-700">6. 🧰 Tools & Collaboration</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Beyond core development, I leverage a suite of industry-standard tools and adhere to agile methodologies to streamline the development workflow, facilitate collaboration, and maintain comprehensive project documentation.
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4">
+                <li><strong>Postman:</strong> Extensively used for API testing, development, and sharing API collections.</li>
+                <li><strong>JIRA:</strong> Employed for agile project management, including task tracking, sprint planning, and bug reporting.</li>
+                <li><strong>Confluence:</strong> Utilized for collaborative documentation, housing design documents, technical specifications, and meeting notes.</li>
+                <li><strong>Git:</strong> Version control system for source code management and collaborative development.</li>
+                <li><strong>Agile/Scrum:</strong> Followed agile principles to ensure iterative development, flexibility, and continuous delivery.</li>
+            </ul>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">JIRA & Confluence:</h4>
+                    <img src="image/homepage_jira_screenshot.png" data-original-src="image/homepage_jira_screenshot.png" alt="Homepage JIRA Screenshot" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/d1d5db/ffffff?text=Image+Not+Found'">
+                    <img src="image/confluence_screenshot_1.png" data-original-src="image/confluence_screenshot_1.png" alt="Confluence Screenshot 1" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/9ca3af/ffffff?text=Image+Not+Found'">
+                    <img src="image/confluence_screenshot_2.png" data-original-src="image/confluence_screenshot_2.png" alt="Confluence Screenshot 2" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/d1d5db/ffffff?text=Image+Not+Found'">
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">Postman & Other Tools:</h4>
+                    <img src="image/postman_collection.png" data-original-src="image/postman_collection.png" alt="Postman Collection" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/d1d5db/ffffff?text=Image+Not+Found'">
+                    <img src="image/jira_board.png" data-original-src="image/jira_board.png" alt="JIRA Board Example" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/d1d5db/ffffff?text=Image+Not+Found'">
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-4">
+                <a href="https://github.com/yourusername/ecommerce-workflow" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
+                    View Workflow Examples
+                </a>
+                <a href="your_tools_methodologies_doc.pdf" download class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
+                    Download Tools & Methodologies Doc
+                </a>
+            </div>
+        </section>
+
+        <!-- Current Development & Next Steps Section -->
+        <section id="current-development" class="bg-white p-6 md:p-10 rounded-lg shadow-md mb-8 md:mb-12">
+            <h2 class="text-3xl font-semibold mb-6 section-heading text-blue-700">Current Development & Next Steps</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                I am continuously enhancing my projects and exploring new technologies. Here's what I'm actively working on:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>AI-powered Product Recommendations:</strong> Enhancing customer experience with personalized suggestions.</li>
+                <li><strong>AI Search:</strong> Improving search accuracy and relevance.</li>
+                <li><strong>Disease Detection:</strong> Developing a new feature for agricultural applications.</li>
+                <li><strong>Payment Gateway Integration:</strong> Expanding payment options for the e-commerce platform.</li>
+                <li><strong>Real-time Inventory Management:</strong> Integrating with warehouse systems for up-to-date stock information.</li>
+            </ul>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="bg-white p-6 md:p-10 rounded-lg shadow-md mb-8 md:mb-12">
+            <h2 class="text-3xl font-semibold mb-6 section-heading text-blue-700">Skills & Expertise</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-lg">
+                <div>
+                    <h3 class="text-xl font-bold mb-2 text-indigo-600">AWS Services:</h3>
+                    <ul class="list-disc list-inside ml-4">
+                        <li>API Gateway</li>
+                        <li>Lambda</li>
+                        <li>RDS (MySQL/PostgreSQL)</li>
+                        <li>S3, EC2, ECS, Fargate</li>
+                        <li>Kinesis, SQS, SNS</li>
+                        <li>CloudFormation, CDK, Terraform</li>
+                        <li>IAM, Cognito</li>
+                        <li>VPC, Route 53</li>
+                        <li>CloudWatch, X-Ray</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2 text-indigo-600">Programming Languages:</h3>
+                    <ul class="list-disc list-inside ml-4">
+                        <li>Python (Primary)</li>
+                        <li>Java</li>
+                        <li>JavaScript</li>
+                        <li>TypeScript</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2 text-indigo-600">Frameworks & Libraries:</h3>
+                    <ul class="list-disc list-inside ml-4">
+                        <li>FastAPI</li>
+                        <li>SQLAlchemy</li>
+                        <li>Spring Boot (Java)</li>
+                        <li>jQuery, Bootstrap</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2 text-indigo-600">Databases:</h3>
+                    <ul class="list-disc list-inside ml-4">
+                        <li>MySQL</li>
+                        <li>PostgreSQL</li>
+                        <li>Oracle</li>
+                        <li>DynamoDB</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2 text-indigo-600">Tools & Methodologies:</h3>
+                    <ul class="list-disc list-inside ml-4">
+                        <li>RESTful API Design</li>
+                        <li>Microservices Architecture</li>
+                        <li>Serverless Computing</li>
+                        <li>Docker, Git</li>
+                        <li>CI/CD (GitHub Actions, AWS CodePipeline)</li>
+                        <li>Unit Testing</li>
+                        <li>Async/Await Programming</li>
+                        <li>Agile/Scrum</li>
+                        <li>Postman, JIRA, Confluence</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-white p-6 md:p-10 rounded-lg shadow-md">
+            <h2 class="text-3xl font-semibold mb-6 section-heading text-blue-700">Get In Touch</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                I'm always open to discussing new projects, collaborations, or job opportunities. Feel free to reach out!
+            </p>
+            <ul class="text-lg space-y-2">
+                <li><strong>Email:</strong> <a href="mailto:ppathik1996@gmail.com" class="text-blue-500 hover:underline">ppathik1996@gmail.com</a></li>
+                
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- The Modal (Image Gallery) -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script>
+        // Image Modal Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("img01");
+            var closeBtn = document.getElementsByClassName("close-modal")[0];
+            
+            // Get all gallery images
+            var galleryImages = document.querySelectorAll('.image-gallery-item');
+            
+            // Add click event to each image
+            galleryImages.forEach(function(img) {
+                img.onclick = function() {
+                    modal.style.display = "flex";
+                    modalImg.src = this.getAttribute('data-original-src') || this.src;
+                }
+            });
+            
+            // Close modal when clicking X
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+            }
+            
+            // Close modal when clicking outside image
+            modal.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            
+            // Close modal with ESC key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === "Escape" && modal.style.display === "flex") {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
