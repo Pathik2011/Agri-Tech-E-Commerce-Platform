@@ -75,7 +75,7 @@
             <h1 class="text-3xl font-bold mb-2 md:mb-0">Agri-Tech E-Commerce Platform </h1>
             <nav>
                 <ul class="flex space-x-4 md:space-x-8 text-lg">
-                    <li><a href="#about" class="hover:text-blue-200 transition-colors duration-300">About</a></li>
+                    <li><a href="#project-overview" class="hover:text-blue-200 transition-colors duration-300">About</a></li>
                     <li><a href="#project-planning-design" class="hover:text-blue-200 transition-colors duration-300">Projects</a></li>
                     <li><a href="#current-development" class="hover:text-blue-200 transition-colors duration-300">Current Work</a></li>
                     <li><a href="#skills" class="hover:text-blue-200 transition-colors duration-300">Skills</a></li>
@@ -87,12 +87,46 @@
 
     <main class="container mx-auto px-4 py-8 md:py-12">
 
-        <!-- About Me Section -->
-        <section id="about" class="bg-white p-6 md:p-10 rounded-lg shadow-md mb-8 md:mb-12">
-            <h2 class="text-3xl font-semibold mb-6 section-heading text-blue-700">About Me</h2>
-            <p class="text-lg leading-relaxed">
-                Hello! I'm a passionate AWS API Developer with expertise in designing, building, and deploying scalable and secure APIs, particularly leveraging <strong>AWS API Gateway</strong> for robust backend solutions.
+        <section id="project-overview" class="bg-white p-6 md:p-10 rounded-lg shadow-md mb-8 md:mb-12">
+            <h2 class="text-3xl font-semibold mb-6 section-heading text-blue-700">Agri-Tech E-Commerce Platform: Revolutionizing Agricultural Procurement</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                This project focuses on building an innovative web platform designed to address critical challenges in the agriculture industry, particularly for farmers in rural areas. Our solution provides easy, accessible, and intelligent online shopping for fertilizers, pesticides, and other agricultural products.
             </p>
+            <h3 class="text-2xl font-bold mb-4 text-indigo-600">Key Objectives & Features:</h3>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+                <li><strong>Empowering Farmers:</strong> Increase accessibility to quality agricultural supplies, saving farmers time and effort traditionally spent on manual procurement.</li>
+                <li><strong>Intelligent Recommendations:</strong> Leverage AI to offer personalized fertilizer recommendations and intelligent product discovery, promoting awareness about effective farming practices and product usage.</li>
+                <li><strong>Streamlined Operations:</strong> Facilitate online purchasing, real-time order tracking, and efficient delivery management, including a "Cash on Pickup" option for reliability.</li>
+                <li><strong>Enhanced Reach & Sales:</strong> Expand market reach into underserved rural areas, boosting sales and business growth by offering superior value and convenience compared to traditional methods.</li>
+                <li><strong>Data-Driven Insights:</strong> Implement detailed reporting and analytics, along with tracking customer behavior, to continuously improve the platform and user experience.</li>
+            </ul>
+            <p class="text-lg leading-relaxed mt-4">
+                This platform aims to be a comprehensive solution that not only simplifies procurement but also empowers farmers with knowledge and efficient tools, driving productivity and yield in the agricultural sector.
+            </p>
+
+            <h3 class="text-2xl font-bold mt-8 mb-4 text-indigo-600">Technologies & Tools Overview:</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
+                <div>
+                     <h4 class="text-xl font-semibold mb-2">Current Stack:</h4>
+                    <ul class="list-disc list-inside ml-4">
+                        <li><strong>Backend Languages & Frameworks:</strong> Python (FastAPI, SQLAlchemy, Pydantic, Boto3)</li>
+                        <li><strong>Cloud Platform (AWS):</strong> API Gateway, Lambda, RDS (MySQL), S3, CloudWatch, IAM, Cognito</li>
+                        <li><strong>Databases:</strong> MySQL</li>
+                        <li><strong>DevOps & IaC:</strong> Git, GitHub Actions, Terraform</li>
+                       
+                        <li><strong>Collaboration & PM Tools:</strong> Figma, JIRA, Postman</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">Future Enhancements & Technologies:</h4>
+                    <ul class="list-disc list-inside ml-4">
+                        <li><strong>AI/ML Integration:</strong> AI-powered Product Recommendations, AI Search, Disease Detection</li>
+                        <li><strong>Payment Systems:</strong> Payment Gateway Integration</li>
+                        <li><strong>Logistics:</strong> Real-time Inventory Management</li>
+                        <li>(Potentially other databases like PostgreSQL, Oracle based on existing skills)</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <!-- Project 1: Planning & Design -->
@@ -125,14 +159,9 @@
                 </div>
             </div>
             <div class="flex flex-wrap gap-4">
-                <a href="https://github.com/yourusername/ecommerce-backend-docs" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
-                    View Docs on GitHub
-                </a>
-                <a href="https://www.figma.com/your-project-link" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
-                    View Figma Project
-                </a>
-                <a href="your_ecommerce_api_design_doc.pdf" download class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
-                    Download Design Doc
+                
+                <a href="Document\SRS V1.docx" download class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
+                    Download SRS Doc
                 </a>
             </div>
         </section>
@@ -169,14 +198,7 @@
                     <img src="image/RDS_2.png" data-original-src="image/RDS_2.png" alt="RDS Schema Table" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/9ca3af/ffffff?text=Image+Not+Found'">
                 </div>
             </div>
-            <div class="flex flex-wrap gap-4">
-                <a href="https://github.com/yourusername/ecommerce-aws-infra" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
-                    View Infra Code on GitHub
-                </a>
-                <a href="your_aws_architecture_doc.pdf" download class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
-                    Download Architecture Doc
-                </a>
-            </div>
+            
         </section>
 
         <!-- Project 3: Backend Development -->
@@ -200,14 +222,7 @@
                     <img src="image/python_code.png" data-original-src="image/python_code.png" alt="Python Code Example" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/8b5cf6/ffffff?text=Image+Not+Found'">
                 </div>
             </div>
-            <div class="flex flex-wrap gap-4">
-                <a href="https://github.com/yourusername/ecommerce-backend-code" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
-                    View Code on GitHub
-                </a>
-                <a href="your_development_practices_doc.pdf" download class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
-                    Download Dev Practices Doc
-                </a>
-            </div>
+           
         </section>
 
         <!-- Project 4: CI/CD & Infrastructure -->
@@ -236,14 +251,7 @@
                     <img src="image/lambda_module_vscode.png" data-original-src="image/lambda_module_vscode.png" alt="Lambda Module VSCode" class="w-full h-auto rounded-lg shadow-md mb-4 object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/9ca3af/ffffff?text=Image+Not+Found'">
                 </div>
             </div>
-            <div class="flex flex-wrap gap-4">
-                <a href="https://github.com/yourusername/ecommerce-cicd" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
-                    View CI/CD on GitHub
-                </a>
-                <a href="your_deployment_strategy_doc.pdf" download class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
-                    Download Deployment Doc
-                </a>
-            </div>
+            
         </section>
 
         <!-- Project 5: Monitoring & Observability -->
@@ -270,14 +278,7 @@
                     <img src="image/cloudwatch_4.png" data-original-src="image/cloudwatch_4.png" alt="CloudWatch Log Events 2" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/8b5cf6/ffffff?text=Image+Not+Found'">
                 </div>
             </div>
-            <div class="flex flex-wrap gap-4">
-                <a href="https://github.com/yourusername/ecommerce-monitoring" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
-                    View Monitoring Config on GitHub
-                </a>
-                <a href="your_monitoring_strategy_doc.pdf" download class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
-                    Download Monitoring Doc
-                </a>
-            </div>
+            
         </section>
 
         <!-- Project 6: Tools & Collaboration -->
@@ -306,14 +307,7 @@
                     <img src="image/jira_board.png" data-original-src="image/jira_board.png" alt="JIRA Board Example" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer image-gallery-item" onerror="this.onerror=null;this.src='https://placehold.co/600x400/d1d5db/ffffff?text=Image+Not+Found'">
                 </div>
             </div>
-            <div class="flex flex-wrap gap-4">
-                <a href="https://github.com/yourusername/ecommerce-workflow" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
-                    View Workflow Examples
-                </a>
-                <a href="your_tools_methodologies_doc.pdf" download class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
-                    Download Tools & Methodologies Doc
-                </a>
-            </div>
+            
         </section>
 
         <!-- Current Development & Next Steps Section -->
