@@ -1,0 +1,675 @@
+openapi: 3.0.1
+info:
+  title: Order Service API
+  description: API to manage product data
+  version: 1.0.0
+paths:
+  /orders:
+    post:
+      summary: Place Order
+      operationId: place_order_orders_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlaceOrderRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaceOrderResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /orders/my:
+    get:
+      summary: Get Customer Orders Summary
+      operationId: get_customer_orders_summary_orders_my_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CustomerOrderSummaryResponse'
+                type: array
+                title: Response Get Customer Orders Summary Orders My Get
+  /orders/my/{order_id}:
+    get:
+      summary: Get Customer Order Details
+      operationId: get_customer_order_details_orders_my__order_id__get
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Order Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerOrderDetailsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /admin/orders:
+    get:
+      summary: Admin View Orders Summary
+      operationId: admin_view_orders_summary_admin_orders_get
+      parameters:
+        - name: order_status
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+            title: Order Status
+        - name: first_name
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+            title: First Name
+        - name: last_name
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+            title: Last Name
+        - name: start_date
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+                format: date
+            title: Start Date
+        - name: end_date
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+                format: date
+            title: End Date
+        - name: min_total_amount
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: number
+            title: Min Total Amount
+        - name: max_total_amount
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: number
+            title: Max Total Amount
+        - name: sort_by
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+            default: order_date
+            title: Sort By
+        - name: sort_order
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+            default: desc
+            title: Sort Order
+        - name: page_size
+          in: query
+          required: false
+          schema:
+            type: integer
+            maximum: 100
+            minimum: 1
+            default: 10
+            title: Page Size
+        - name: page_offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+            title: Page Offset
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdminOrderSummaryResponse'
+                title: Response Admin View Orders Summary Admin Orders Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /admin/orders/{order_id}:
+    get:
+      summary: Admin Get Order Details
+      operationId: admin_get_order_details_admin_orders__order_id__get
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Order Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    patch:
+      summary: Admin Update Order
+      operationId: admin_update_order_admin_orders__order_id__patch
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Order Id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdminOrderUpdateRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminUpdateOrderResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    AdminOrderDetailShippingAddress:
+      properties:
+        street:
+          anyOf:
+            - type: string
+            
+          title: Street
+        village:
+          anyOf:
+            - type: string
+            
+          title: Village
+        taluka:
+          anyOf:
+            - type: string
+            
+          title: Taluka
+        district:
+          anyOf:
+            - type: string
+            
+          title: District
+        state:
+          anyOf:
+            - type: string
+            
+          title: State
+        pin_code:
+          anyOf:
+            - type: string
+            
+          title: Pin Code
+      type: object
+      title: AdminOrderDetailShippingAddress
+    AdminOrderSummaryResponse:
+      properties:
+        order_id:
+          type: integer
+          title: Order Id
+        order_status:
+          type: string
+          title: Order Status
+        total_amount:
+          type: string
+          title: Total Amount
+        order_date:
+          type: string
+          format: date-time
+          title: Order Date
+        customer_first_name:
+          type: string
+          title: Customer First Name
+        customer_last_name:
+          type: string
+          title: Customer Last Name
+      type: object
+      required:
+        - order_id
+        - order_status
+        - total_amount
+        - order_date
+        - customer_first_name
+        - customer_last_name
+      title: AdminOrderSummaryResponse
+    AdminOrderUpdateRequest:
+      properties:
+        order_status:
+          anyOf:
+            - type: string
+              enum:
+                - Pending
+                - In-process
+                - Completed
+                - Cancelled
+            
+          title: Order Status
+        order_discount:
+          anyOf:
+            - type: number
+            
+          title: Order Discount
+        shipping_address:
+          anyOf:
+            - $ref: '#/components/schemas/ShippingAddressUpdate'
+            
+        order_items:
+          anyOf:
+            - items:
+                $ref: '#/components/schemas/OrderItemUpdate'
+              type: array
+            
+          title: Order Items
+      type: object
+      title: AdminOrderUpdateRequest
+    AdminUpdateOrderResponse:
+      properties:
+        order_id:
+          type: integer
+          title: Order Id
+        order_date:
+          type: string
+          format: date-time
+          title: Order Date
+        order_status:
+          type: string
+          title: Order Status
+        subtotal:
+          type: number
+          title: Subtotal
+        order_discount:
+          type: number
+          title: Order Discount
+        total_amount:
+          type: number
+          title: Total Amount
+        shipping_address:
+          anyOf:
+            - $ref: '#/components/schemas/AdminOrderDetailShippingAddress'
+            
+      type: object
+      required:
+        - order_id
+        - order_date
+        - order_status
+        - subtotal
+        - order_discount
+        - total_amount
+      title: AdminUpdateOrderResponse
+    CustomerOrderDetailsResponse:
+      properties:
+        order_id:
+          type: integer
+          title: Order Id
+        order_date:
+          type: string
+          format: date-time
+          title: Order Date
+        order_status:
+          type: string
+          enum:
+            - Pending
+            - In-process
+            - Completed
+            - Cancelled
+          title: Order Status
+        subtotal:
+          type: string
+          title: Subtotal
+        order_discount:
+          type: string
+          title: Order Discount
+        total_amount:
+          type: string
+          title: Total Amount
+        order_note:
+          type: string
+          title: Order Note
+        shipping_address:
+          anyOf:
+            - $ref: '#/components/schemas/ShippingAddress'
+            
+        order_items:
+          items:
+            $ref: '#/components/schemas/OrderItemDetail'
+          type: array
+          title: Order Items
+      type: object
+      required:
+        - order_id
+        - order_date
+        - order_status
+        - subtotal
+        - order_discount
+        - total_amount
+        - order_note
+        - order_items
+      title: CustomerOrderDetailsResponse
+    CustomerOrderSummaryResponse:
+      properties:
+        order_id:
+          type: integer
+          title: Order Id
+        order_date:
+          type: string
+          format: date-time
+          title: Order Date
+        order_status:
+          type: string
+          title: Order Status
+        product_names:
+          items:
+            type: string
+          type: array
+          title: Product Names
+      type: object
+      required:
+        - order_id
+        - order_date
+        - order_status
+        - product_names
+      title: CustomerOrderSummaryResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    OrderItemDetail:
+      properties:
+        order_item_id:
+          type: integer
+          title: Order Item Id
+        product_name:
+          type: string
+          title: Product Name
+        quantity:
+          type: integer
+          title: Quantity
+        unit_price:
+          type: string
+          title: Unit Price
+        item_discount:
+          type: string
+          title: Item Discount
+        item_total:
+          type: string
+          title: Item Total
+        discounted_price:
+          type: string
+          title: Discounted Price
+        delivery_status:
+          type: string
+          enum:
+            - Pending
+            - Dispatched
+            - Delivered
+            - Returned
+            - Cancelled
+          title: Delivery Status
+        delivery_type:
+          type: string
+          enum:
+            - P
+            - S
+          title: Delivery Type
+        delivery_status_date:
+          type: string
+          format: date-time
+          title: Delivery Status Date
+      type: object
+      required:
+        - order_item_id
+        - product_name
+        - quantity
+        - unit_price
+        - item_discount
+        - item_total
+        - discounted_price
+        - delivery_status
+        - delivery_type
+        - delivery_status_date
+      title: OrderItemDetail
+    OrderItemUpdate:
+      properties:
+        order_item_id:
+          anyOf:
+            - type: integer
+            
+          title: Order Item Id
+        action:
+          type: string
+          enum:
+            - update
+            - remove
+            - add
+          title: Action
+        product_variant_id:
+          anyOf:
+            - type: integer
+            
+          title: Product Variant Id
+        quantity:
+          anyOf:
+            - type: integer
+            
+          title: Quantity
+        item_discount:
+          anyOf:
+            - type: number
+            
+          title: Item Discount
+        delivery_status:
+          anyOf:
+            - type: string
+              enum:
+                - Pending
+                - Dispatched
+                - Delivered
+                - Returned
+                - Cancelled
+            
+          title: Delivery Status
+        delivery_type:
+          anyOf:
+            - type: string
+              enum:
+                - P
+                - S
+            
+          title: Delivery Type
+      type: object
+      required:
+        - action
+      title: OrderItemUpdate
+    PlaceOrderRequest:
+      properties:
+        customer_id:
+          type: integer
+          title: Customer Id
+          description: Customer ID
+        notes:
+          anyOf:
+            - type: string
+            
+          title: Notes
+          description: Optional notes for the order
+        shipping_address:
+          anyOf:
+            - $ref: '#/components/schemas/ShippingAddress'
+            
+          description: Optional shipping address details
+      type: object
+      required:
+        - customer_id
+      title: PlaceOrderRequest
+    PlaceOrderResponse:
+      properties:
+        order_id:
+          type: integer
+          title: Order Id
+        total_amount:
+          type: string
+          title: Total Amount
+        subtotal:
+          type: string
+          title: Subtotal
+        items_count:
+          type: integer
+          title: Items Count
+      type: object
+      required:
+        - order_id
+        - total_amount
+        - subtotal
+        - items_count
+      title: PlaceOrderResponse
+    ShippingAddress:
+      properties:
+        street:
+          type: string
+          title: Street
+          description: Shipping Street address
+        village:
+          type: string
+          title: Village
+          description: Shipping Village
+        taluka:
+          type: string
+          title: Taluka
+          description: Shipping Taluka
+        district:
+          type: string
+          title: District
+          description: Shipping District
+        state:
+          type: string
+          title: State
+          description: Shipping State
+        pin_code:
+          type: string
+          title: Pin Code
+          description: Shipping Pin Code
+      type: object
+      required:
+        - street
+        - village
+        - taluka
+        - district
+        - state
+        - pin_code
+      title: ShippingAddress
+    ShippingAddressUpdate:
+      properties:
+        street:
+          anyOf:
+            - type: string
+            
+          title: Street
+        village:
+          anyOf:
+            - type: string
+            
+          title: Village
+        taluka:
+          anyOf:
+            - type: string
+            
+          title: Taluka
+        district:
+          anyOf:
+            - type: string
+            
+          title: District
+        state:
+          anyOf:
+            - type: string
+            
+          title: State
+        pin_code:
+          anyOf:
+            - type: string
+            
+          title: Pin Code
+      type: object
+      title: ShippingAddressUpdate
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+        - loc
+        - msg
+        - type
+      title: ValidationError
